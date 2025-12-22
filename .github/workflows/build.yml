@@ -3,10 +3,9 @@ name: Build Java Project
 on:
   push:
     branches: [ main ]
+    tags: [ 'v*' ]
   pull_request:
     branches: [ main ]
-  tags:
-    - 'v*'  # automatycznie przy każdym tagu zaczynającym się od v
 
 jobs:
   build:
@@ -27,4 +26,3 @@ jobs:
 
     - name: List target folder
       run: ls -la target
-
