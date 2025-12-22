@@ -26,3 +26,9 @@ jobs:
 
     - name: List target folder
       run: ls -la target
+
+    - name: Upload JAR as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: built-jar
+        path: target/io-project-architecture-0.1.jar
