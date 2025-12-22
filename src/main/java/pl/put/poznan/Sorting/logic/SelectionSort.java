@@ -13,8 +13,8 @@ public class SelectionSort extends AbstractLimitedSortingAlgorithm {
     }
 
     @Override
-    public List<Integer> sort(List<Integer> data, int limit) {
-        List<Integer> list = copyOf(data);
+    public List<List<Object>> sort(List<List<Object>> data, int sortByIndex, int limit, boolean descending) {
+        List<List<Object>> list = copyOf(data);
         int n = list.size();
         int stepsLeft = normalizeLimit(limit);
 
@@ -22,12 +22,12 @@ public class SelectionSort extends AbstractLimitedSortingAlgorithm {
             int minIdx = i;
             for (int j = i + 1; j < n && stepsLeft > 0; j++) {
                 stepsLeft--;
-                if (list.get(j) < list.get(minIdx)) {
+                if (compareRows(list.get(j), list.get(minIdx), sortByIndex, descending) < 0) {
                     minIdx = j;
                 }
             }
             if (minIdx != i) {
-                int tmp = list.get(i);
+                List<Object> tmp = list.get(i);
                 list.set(i, list.get(minIdx));
                 list.set(minIdx, tmp);
             }

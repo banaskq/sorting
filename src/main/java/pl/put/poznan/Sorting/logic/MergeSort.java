@@ -14,49 +14,44 @@ public class MergeSort extends AbstractLimitedSortingAlgorithm {
     }
 
     @Override
-    public List<Integer> sort(List<Integer> data, int limit) {
-        List<Integer> list = copyOf(data);
+    public List<List<Object>> sort(List<List<Object>> data, int sortByIndex, int limit, boolean descending) {
+        List<List<Object>> list = copyOf(data);
         int[] stepsLeft = new int[]{ normalizeLimit(limit) };
-        return mergeSort(list, stepsLeft);
+        return mergeSort(list, sortByIndex, stepsLeft, descending);
     }
 
-    private List<Integer> mergeSort(List<Integer> list, int[] stepsLeft) {
+    private List<List<Object>> mergeSort(List<List<Object>> list, int sortByIndex,
+                                         int[] stepsLeft, boolean descending) {
+
         if (list.size() <= 1 || stepsLeft[0] <= 0) {
             return list;
         }
+
         int mid = list.size() / 2;
-        List<Integer> left = mergeSort(list.subList(0, mid), stepsLeft);
-        List<Integer> right = mergeSort(list.subList(mid, list.size()), stepsLeft);
-        return merge(left, right, stepsLeft);
+        List<List<Object>> left = mergeSort(list.subList(0, mid), sortByIndex, stepsLeft, descending);
+        List<List<Object>> right = mergeSort(list.subList(mid, list.size()), sortByIndex, stepsLeft, descending);
+
+        return merge(left, right, sortByIndex, stepsLeft, descending);
     }
 
-    private List<Integer> merge(List<Integer> left, List<Integer> right, int[] stepsLeft) {
-        List<Integer> result = new ArrayList<>(left.size() + right.size());
+    private List<List<Object>> merge(List<List<Object>> left, List<List<Object>> right,
+                                     int sortByIndex, int[] stepsLeft, boolean descending) {
+
+        List<List<Object>> result = new ArrayList<>();
         int i = 0, j = 0;
 
         while (i < left.size() && j < right.size() && stepsLeft[0] > 0) {
             stepsLeft[0]--;
-            if (left.get(i) <= right.get(j)) {
+            if (compareRows(left.get(i), right.get(j), sortByIndex, descending) <= 0) {
                 result.add(left.get(i++));
             } else {
                 result.add(right.get(j++));
             }
         }
-        while (i < left.size() && stepsLeft[0] > 0) {
-            result.add(left.get(i++));
-        }
-        while (j < right.size() && stepsLeft[0] > 0) {
-            result.add(right.get(j++));
-        }
 
-        // If the limit is reached, all unsorted data is randomly appended.
+        while (i < left.size()) result.add(left.get(i++));
+        while (j < right.size()) result.add(right.get(j++));
 
-        while (i < left.size()) {
-            result.add(left.get(i++));
-        }
-        while (j < right.size()) {
-            result.add(right.get(j++));
-        }
         return result;
     }
 }

@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ddec5298-a09c-455a-9c39-fa30be24617d" name="Default" comment="" />
+    <list default="true" id="ddec5298-a09c-455a-9c39-fa30be24617d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/AbstractLimitedSortingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/AbstractLimitedSortingAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/BubbleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/HeapSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/InsertionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/MergeSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/QuickSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/SelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/SelectionSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/SortingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/logic/SortingAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/rest/SortingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/rest/SortingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/rest/SortingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/rest/SortingRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/rest/SortingResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/Sorting/rest/SortingResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/AbstractLimitedSortingAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/AbstractLimitedSortingAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/BubbleSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/BubbleSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/HeapSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/HeapSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/InsertionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/InsertionSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/MergeSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/QuickSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/SelectionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/SelectionSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/SortingAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/logic/SortingAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/rest/SortingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/rest/SortingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/rest/SortingRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/rest/SortingRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/rest/SortingResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/put/poznan/Sorting/rest/SortingResult.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,19 +72,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TextTransformerApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/skkam/Desktop/studia/inz/sort/SortingApp",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TextTransformerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/skkam/Desktop/studia/inz/sort/SortingApp&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.TextTransformerApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -149,7 +173,7 @@
       <workItem from="1513022386137" duration="6468000" />
       <workItem from="1513093084300" duration="8069000" />
       <workItem from="1765902284003" duration="72000" />
-      <workItem from="1765902777529" duration="3726000" />
+      <workItem from="1765902777529" duration="8558000" />
     </task>
     <servers />
   </component>

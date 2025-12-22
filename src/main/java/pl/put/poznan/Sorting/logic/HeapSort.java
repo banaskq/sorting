@@ -13,28 +13,29 @@ public class HeapSort extends AbstractLimitedSortingAlgorithm {
     }
 
     @Override
-    public List<Integer> sort(List<Integer> data, int limit) {
-        List<Integer> list = copyOf(data);
+    public List<List<Object>> sort(List<List<Object>> data, int sortByIndex, int limit, boolean descending) {
+        List<List<Object>> list = copyOf(data);
         int n = list.size();
         int stepsLeft = normalizeLimit(limit);
 
-        // Heap building
         for (int i = n / 2 - 1; i >= 0 && stepsLeft > 0; i--) {
-            stepsLeft = heapify(list, n, i, stepsLeft);
+            stepsLeft = heapify(list, n, i, sortByIndex, stepsLeft, descending);
         }
 
-        // Getting elements from a heap
         for (int i = n - 1; i >= 0 && stepsLeft > 0; i--) {
-            int tmp = list.get(0);
+            List<Object> tmp = list.get(0);
             list.set(0, list.get(i));
             list.set(i, tmp);
-            stepsLeft = heapify(list, i, 0, stepsLeft);
+
+            stepsLeft = heapify(list, i, 0, sortByIndex, stepsLeft, descending);
         }
 
         return list;
     }
 
-    private int heapify(List<Integer> list, int n, int i, int stepsLeft) {
+    private int heapify(List<List<Object>> list, int n, int i,
+                        int sortByIndex, int stepsLeft, boolean descending) {
+
         if (stepsLeft <= 0) return 0;
 
         int largest = i;
@@ -43,24 +44,26 @@ public class HeapSort extends AbstractLimitedSortingAlgorithm {
 
         if (l < n && stepsLeft > 0) {
             stepsLeft--;
-            if (list.get(l) > list.get(largest)) {
+            if (compareRows(list.get(l), list.get(largest), sortByIndex, descending) > 0) {
                 largest = l;
             }
         }
 
         if (r < n && stepsLeft > 0) {
             stepsLeft--;
-            if (list.get(r) > list.get(largest)) {
+            if (compareRows(list.get(r), list.get(largest), sortByIndex, descending) > 0) {
                 largest = r;
             }
         }
 
         if (largest != i && stepsLeft > 0) {
-            int swap = list.get(i);
+            List<Object> swap = list.get(i);
             list.set(i, list.get(largest));
             list.set(largest, swap);
-            stepsLeft = heapify(list, n, largest, stepsLeft);
+
+            stepsLeft = heapify(list, n, largest, sortByIndex, stepsLeft, descending);
         }
+
         return stepsLeft;
     }
 }
