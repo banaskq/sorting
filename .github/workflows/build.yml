@@ -28,7 +28,7 @@ jobs:
       run: ls -la target
 
     - name: Upload JAR as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: built-jar
         path: target/io-project-architecture-0.1.jar
