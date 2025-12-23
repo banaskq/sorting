@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Porównywarka Algorytmów</title>
     <style>
         body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
-        .container { background: white; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        textarea { width: 100%; height: 60px; margin-bottom: 10px; }
-        select, input, button { margin: 5px 0; padding: 8px; width: 100%; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .container { background: white; padding: 20px; border-radius: 8px; max-width: 800px; margin: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        textarea { width: 100%; height: 80px; margin-bottom: 10px; box-sizing: border-box; }
+        select, input, button { margin: 5px 0; padding: 10px; width: 100%; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background: #f2f2f2; }
+        .error { color: red; font-weight: bold; margin-top: 10px; }
+        .loading { color: #555; font-style: italic; }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Laboratorium Sortowania</h2>
-        <label>Dane (rozdzielone przecinkiem):</label>
-        <textarea id="numbers" placeholder="np. 10, 5, 8, 1, 7"></textarea>
         
-        <label>Kierunek:</label>
+        <label for="numbers">Dane (liczby rozdzielone przecinkiem):</label>
+        <textarea id="numbers" placeholder="np. 10, 5, 8, 1, 7, 22, 14"></textarea>
+        
+        <label for="order">Kierunek sortowania:</label>
         <select id="order">
             <option value="asc">Rosnąco</option>
             <option value="desc">Malejąco</option>
         </select>
 
-        <label>Limit iteracji (opcjonalnie):</label>
-        <input type="number" id="limit" value="0">
+        <label for="limit">Limit iteracji (0 = brak limitu):</label>
+        <input type="number" id="limit" value="0" min="0">
 
         <button onclick="sortData()">SORTUJ I PORÓWNAJ</button>
 
@@ -35,37 +40,80 @@
 
     <script>
         async function sortData() {
-            const val = document.getElementById('numbers').value;
-            const data = val.split(',').map(n => n.trim()).filter(n => n !== "").map(Number);
-            
-            // Wysyłamy żądanie do wszystkich algorytmów kolegi naraz
+            const resultsDiv = document.getElementById('results');
+            const numbersInput = document.getElementById('numbers').value;
+
+            // 1. Walidacja wejścia
+            if (!numbersInput.trim()) {
+                resultsDiv.innerHTML = '<p class="error">Błąd: Wpisz liczby do posortowania!</p>';
+                return;
+            }
+
+            // 2. Przygotowanie danych
+            const data = numbersInput.split(',')
+                .map(n => n.trim())
+                .filter(n => n !== "")
+                .map(Number);
+
+            if (data.some(isNaN)) {
+                resultsDiv.innerHTML = '<p class="error">Błąd: Na liście znajdują się nieprawidłowe znaki (tylko liczby są dozwolone)!</p>';
+                return;
+            }
+
+            // 3. Informacja o ładowaniu
+            resultsDiv.innerHTML = '<p class="loading">Łączenie z serwerem Java i sortowanie...</p>';
+
             const payload = {
                 data: data,
                 algorithms: ["bubble", "heap", "insertion", "merge", "quick", "selection"],
                 order: document.getElementById('order').value,
-                iterationLimit: parseInt(document.getElementById('limit').value)
+                iterationLimit: parseInt(document.getElementById('limit').value) || 0
             };
 
-            const response = await fetch('/api/sort', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(payload)
-            });
+            try {
+                // 4. Zapytanie do API
+                const response = await fetch('/api/sort', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                });
 
-            const result = await response.json();
-            displayResults(result);
+                if (!response.ok) {
+                    throw new Error(`Błąd serwera: ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                // 5. Wyświetlenie wyników
+                displayResults(result);
+
+            } catch (error) {
+                console.error("Szczegóły błędu:", error);
+                resultsDiv.innerHTML = `<p class="error">Wystąpił błąd podczas komunikacji z API: ${error.message}. Upewnij się, że serwer Java (Spring Boot) jest uruchomiony.</p>`;
+            }
         }
 
         function displayResults(result) {
-            let html = `<table><tr><th>Algorytm</th><th>Czas (ms)</th><th>Wynik</th></tr>`;
+            let html = `<h3>Wyniki porównania:</h3>`;
+            html += `<table>
+                        <thead>
+                            <tr>
+                                <th>Algorytm</th>
+                                <th>Czas (ms)</th>
+                                <th>Wynik końcowy</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+            
             result.results.forEach(r => {
                 html += `<tr>
-                    <td>${r.algorithm}</td>
-                    <td>${r.timeMillis}</td>
-                    <td>${r.sortedData.join(', ')}</td>
-                </tr>`;
+                            <td><strong>${r.algorithm.toUpperCase()}</strong></td>
+                            <td>${r.timeMillis === 0 ? '< 0.1' : r.timeMillis} ms</td>
+                            <td>${r.sortedData.join(', ')}</td>
+                        </tr>`;
             });
-            html += `</table>`;
+            
+            html += `</tbody></table>`;
             document.getElementById('results').innerHTML = html;
         }
     </script>
