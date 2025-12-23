@@ -1,3 +1,13 @@
-/Users/mochodek/Documents/Dydaktyka/Wyklady/IO/Laboratory classes/projekt/ioprojectarchitecture/src/main/java/pl/put/poznan/transformer/app/TextTransformerApplication.java
-/Users/mochodek/Documents/Dydaktyka/Wyklady/IO/Laboratory classes/projekt/ioprojectarchitecture/src/main/java/pl/put/poznan/transformer/logic/TextTransformer.java
-/Users/mochodek/Documents/Dydaktyka/Wyklady/IO/Laboratory classes/projekt/ioprojectarchitecture/src/main/java/pl/put/poznan/transformer/rest/TextTransformerController.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/app/SortingApplication.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/SelectionSort.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/MergeSort.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/InsertionSort.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/AbstractLimitedSortingAlgorithm.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/rest/SortingController.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/rest/SortingResult.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/HeapSort.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/rest/SortingRequest.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/rest/SortingResponse.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/BubbleSort.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/SortingAlgorithm.java
+/workspaces/sorting/src/main/java/pl/put/poznan/Sorting/logic/QuickSort.java
