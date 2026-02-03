@@ -68,8 +68,10 @@ class QuickSortTest {
                 Arrays.asList(3)
         );
 
+        // Limit 5 kroków
         List<List<Object>> result = quickSort.sort(data, 0, 5, false);
 
+        // Sprawdź czy algorytm działał z limitem
         assertNotNull(result);
     }
 
